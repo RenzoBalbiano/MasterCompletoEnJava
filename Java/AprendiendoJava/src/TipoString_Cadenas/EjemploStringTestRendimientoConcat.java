@@ -16,13 +16,16 @@ public class EjemploStringTestRendimientoConcat {
 
             // c += a + b + "\n"; // 7 ms. es Más rápido el método concat. Luego 0 ms. 0 ms con 1000. Este método termina luego superando al concat a medida que crece el número de iteraciones.
 
-            //sb.append(a).append(b).append("\n"); // 0 luego 2. Con 1000 0 ms. // este es el mejor.
+            sb.append(a).append(b).append("\n"); // 0 luego 2. Con 1000 0 ms. // este es el mejor.
         }
+
+        System.gc();//libera espacio en memoria, de variables que no se usan. Cuando trabajamos con muchas instancias y objetos.
 
         long fin = System.currentTimeMillis();
 
         System.out.println("tiempo en milisegundos " + (fin - inicio));
         System.out.println(c);
         System.out.println("sb = " + sb.toString());
+        System.exit(0);
     }
 }
