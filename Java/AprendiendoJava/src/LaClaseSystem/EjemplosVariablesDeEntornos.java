@@ -5,7 +5,7 @@ import java.util.Map;
 public class EjemplosVariablesDeEntornos {
 
     public static void main(String[] args) {
-        
+
         Map<String, String> varEnv = System.getenv();
 
         System.out.println(" ");
@@ -16,7 +16,7 @@ public class EjemplosVariablesDeEntornos {
         System.out.println("Listando variables de entorno del sistema: ");
         System.out.println(" ");
 
-        for(String key: varEnv.keySet()){
+        for (String key : varEnv.keySet()) {
             System.out.println(key + " => " + varEnv.get(key));
         }
 
@@ -27,12 +27,10 @@ public class EjemplosVariablesDeEntornos {
         System.out.println(" ");
         System.out.println("Username: " + username);
 
-        
         String javaHome = System.getenv("JAVA_HOME");
         System.out.println(" ");
         System.out.println("Java Home: " + javaHome);
 
-        
         String tempDir = System.getenv("TEMP");
         System.out.println(" ");
         System.out.println("TempDir : " + tempDir);
@@ -54,5 +52,5 @@ public class EjemplosVariablesDeEntornos {
         System.out.println("hola : " + hola);
 
     }
-    
+
 }

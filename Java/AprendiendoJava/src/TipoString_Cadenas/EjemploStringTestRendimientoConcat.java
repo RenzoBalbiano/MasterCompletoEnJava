@@ -1,7 +1,8 @@
 package TipoString_Cadenas;
+
 public class EjemploStringTestRendimientoConcat {
     public static void main(String[] args) {
-        
+
         String a = "a";
         String b = "b";
         String c = a;
@@ -10,16 +11,19 @@ public class EjemploStringTestRendimientoConcat {
 
         long inicio = System.currentTimeMillis();
 
-        for(int i = 0; i < 1000; i++){
+        for (int i = 0; i < 1000; i++) {
 
-            //c = c.concat(a).concat(b).concat("\n"); // 2 ms. Luego 0. 5 ms con 1000.
+            // c = c.concat(a).concat(b).concat("\n"); // 2 ms. Luego 0. 5 ms con 1000.
 
-            // c += a + b + "\n"; // 7 ms. es Más rápido el método concat. Luego 0 ms. 0 ms con 1000. Este método termina luego superando al concat a medida que crece el número de iteraciones.
+            // c += a + b + "\n"; // 7 ms. es Más rápido el método concat. Luego 0 ms. 0 ms
+            // con 1000. Este método termina luego superando al concat a medida que crece el
+            // número de iteraciones.
 
             sb.append(a).append(b).append("\n"); // 0 luego 2. Con 1000 0 ms. // este es el mejor.
         }
 
-        System.gc();//libera espacio en memoria, de variables que no se usan. Cuando trabajamos con muchas instancias y objetos.
+        System.gc();// libera espacio en memoria, de variables que no se usan. Cuando trabajamos con
+                    // muchas instancias y objetos.
 
         long fin = System.currentTimeMillis();
 

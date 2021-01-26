@@ -6,23 +6,21 @@ public class EjemplosDeVariables {
         System.out.println(saludar);
         System.out.println("saludar.toUpperCase() = " + saludar.toUpperCase());
 
-        int numero = 10; // no tiene atributos o métodos es una variable primitiva. 
+        int numero = 10; // no tiene atributos o métodos es una variable primitiva.
 
         System.out.println("numero = " + numero);
 
-        Integer numeroClase = 10; // si tiene métodos. 
+        Integer numeroClase = 10; // si tiene métodos.
 
-        boolean valor = true; 
+        boolean valor = true;
 
-        if(valor){
+        if (valor) {
             System.out.println("numero = " + numero);
-            numero = 12; 
-            int numero2 = 14; 
+            numero = 12;
+            int numero2 = 14;
         }
 
-        var numeroDebilmenteTipado = "15"; // asigna el tipo de variable automáticamente. 
-        
+        var numeroDebilmenteTipado = "15"; // asigna el tipo de variable automáticamente.
 
-    
     }
 }

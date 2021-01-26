@@ -8,12 +8,12 @@ import java.util.Date;
 public class EjemploJavaUtilDate {
 
     public static void main(String[] args) {
-        
+
         Date fecha = new Date();
 
         System.out.println(fecha);
 
-        //para formatear esta fecha:
+        // para formatear esta fecha:
 
         SimpleDateFormat df1 = new SimpleDateFormat("dd MM, yyyy");
         SimpleDateFormat df2 = new SimpleDateFormat("dd MMMM, yyyy");
@@ -26,7 +26,6 @@ public class EjemploJavaUtilDate {
         SimpleDateFormat df9 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         SimpleDateFormat df10 = new SimpleDateFormat("'fecha:' yyyy.MM.dd G 'hora' HH:mm:ss z");
         SimpleDateFormat df11 = new SimpleDateFormat("EEEE, dd 'de' MMMM, 'de' yyyy");
-
 
         String fechaStr = df1.format(fecha);
         String fechaStr2 = df2.format(fecha);
@@ -52,16 +51,17 @@ public class EjemploJavaUtilDate {
         System.out.println(fechaStr10);
         System.out.println(fechaStr11);
 
-        //Ejemplo con la clase Unix. En milisegundos.
+        // Ejemplo con la clase Unix. En milisegundos.
         long j = 0;
 
-        for(int i = 0; i < 10000000; i++){
+        for (int i = 0; i < 10000000; i++) {
             j += i;
         }
         System.out.println(j);
 
         Date fecha2 = new Date();
-        long tiempoFinal = fecha2.getTime() - fecha.getTime(); //Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT represented by this Date object
+        long tiempoFinal = fecha2.getTime() - fecha.getTime(); // Returns the number of milliseconds since January 1,
+                                                               // 1970, 00:00:00 GMT represented by this Date object
         System.out.println("Tiempo transcurrido en el for: " + tiempoFinal);
     }
 }

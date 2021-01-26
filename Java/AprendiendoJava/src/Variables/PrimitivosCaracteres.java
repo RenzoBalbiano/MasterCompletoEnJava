@@ -1,11 +1,12 @@
 package Variables;
-public class PrimitivosCaracteres {
-    
-    public static void main(String[] args) {
-        
-        char caracter = 'a';//usamos comillas simples con caractéres. 
 
-        char caracter2 = '9'; //no se puede 10.
+public class PrimitivosCaracteres {
+
+    public static void main(String[] args) {
+
+        char caracter = 'a';// usamos comillas simples con caractéres.
+
+        char caracter2 = '9'; // no se puede 10.
 
         char caracterFormatoUnicode = '\u2021';
 
@@ -13,7 +14,7 @@ public class PrimitivosCaracteres {
 
         var simbolo = '@'; // funciona igual. Detecta que es de tipo caracter.
 
-        char espacio = ' '; //es igual a '\u0020'
+        char espacio = ' '; // es igual a '\u0020'
         char retroceso = '\b';
         char tabulador = '\t';
         char nuevaLinea = '\n';
@@ -27,8 +28,21 @@ public class PrimitivosCaracteres {
         System.out.println("tipo Character corresponde en byte a " + nuevaLinea + Character.BYTES);
         System.out.println("tipo Character corresponde en byte a " + retornoCarro + Character.BYTES);
         System.out.println("tipo Character corresponde en bites a" + retroceso + Character.SIZE);
-        System.out.println("tipo Character corresponde en bites a" + System.getProperty("line.separator") + Character.SIZE); //hace lo mismo que nuevaLinea o retornoCarro.
-        System.out.println("tipo Character corresponde en bites a" + System.lineSeparator() + Character.SIZE); //O puede hacerse así también con atajo.
+        System.out.println(
+                "tipo Character corresponde en bites a" + System.getProperty("line.separator") + Character.SIZE); // hace
+                                                                                                                  // lo
+                                                                                                                  // mismo
+                                                                                                                  // que
+                                                                                                                  // nuevaLinea
+                                                                                                                  // o
+                                                                                                                  // retornoCarro.
+        System.out.println("tipo Character corresponde en bites a" + System.lineSeparator() + Character.SIZE); // O
+                                                                                                               // puede
+                                                                                                               // hacerse
+                                                                                                               // así
+                                                                                                               // también
+                                                                                                               // con
+                                                                                                               // atajo.
         System.out.println("valor máximo en un \t Character: " + tabulador + Character.MAX_VALUE);
         System.out.println("valor mínimo en un Character: " + espacio + Character.MIN_VALUE + simbolo);
     }
