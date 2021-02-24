@@ -24,13 +24,22 @@ public class EjemploAutomovil {
          * 2.0; subaru.color = "blanco";// modificamos el valor por defecto
          */
 
-        subaru.setCilidranda(2.0);
+        // Podría inicializarse así:
+        // subaru.setMotor(new Motor(2.0,TipoMotor.BENCINA));
+        Motor motorSubaru = new Motor(2.0, TipoMotor.BENCINA);
+        Estanque estanqueSubaru = new Estanque();
+
+        // O podría inicializarse así:
+        subaru.setMotor(motorSubaru);
+        subaru.setEstanque(estanqueSubaru);
+
         subaru.setColor(Color.BLANCO);
         /*
          * subaru.setFabricante("Subaru"); subaru.setModelo("Impreza");
          */
 
-        Automovil mazda = new Automovil("Mazda", "BT-500", Color.ROJO, 3.0);
+        Automovil mazda = new Automovil("Mazda", "BT-500", Color.ROJO, new Motor(3.0, TipoMotor.DIESEL));
+        mazda.setEstanque(new Estanque(45));
 
         /*
          * mazda.setCilidranda(3.0); mazda.setColor("rojo");
@@ -49,8 +58,8 @@ public class EjemploAutomovil {
          * System.out.println("mazda : " + mazda.modelo);
          */
 
-        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
-        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS,new Motor(3.0,TipoMotor.DIESEL), new Estanque(50));
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, new Motor(3.5,TipoMotor.BENCINA), new Estanque(50));
         Automovil auto = new Automovil();
         Date fecha = new Date();
 
@@ -70,10 +79,10 @@ public class EjemploAutomovil {
         System.out.println(nissan);// acá se usa toString. Lo que hace por detrás es convertir el hashcode a
                                    // hexadecimal como texto. No es necesario convocar el método.
                                    // Automovil@6f75e721 Tiene un id único el hashcode. Es lo mismo que hacer esto:
-        System.out.println(nissan.toString()); //Podemos sobrescribirlo.
+        System.out.println(nissan.toString()); // Podemos sobrescribirlo.
 
         System.out.println("mazda color : " + mazda.getColor());
-        System.out.println("mazda cilindrada: " + mazda.getCilidranda());
+        System.out.println("mazda cilindrada: " + mazda.getMotor().getCilindrada());
 
         System.out.println(subaru.detalleDos());
         System.out.println(mazda.detalleDos());

@@ -1,4 +1,4 @@
-public class Automovil {
+public class Automovil implements Comparable<Automovil> {
 
     // Ejemplo de atributo estático para que cada vez que creemos una instancia
     // tenga un id propio autoincremental:
@@ -24,8 +24,11 @@ public class Automovil {
     private String modelo;
     // private String color = Automovil.COLOR_GRIS; // por defecto
     private Color color = Color.GRIS; // por defecto
-    private double cilidranda;
-    private int capacidadEstanque = 40; // con 40 litros de gas o bencina se llena el Estanque.
+    private Motor motor;
+    private Estanque estanque; // con 40 litros de gas o bencina se llena el Estanque.
+    private Persona conductor;
+    private Rueda[] ruedas;
+    private int indiceRuedas;
 
     private TipoAutomovil tipo;
 
@@ -69,6 +72,8 @@ public class Automovil {
         // Ejemplo de atributo estático para que cada vez que creemos una instancia
         // tenga un id propio autoincremental:
         this.id = ++ultimoId; // cada que se llama a este constructor incrementa la variable.
+
+        this.ruedas = new Rueda[5];
     }
 
     public Automovil(String fabricante, String modelo) {
@@ -83,14 +88,21 @@ public class Automovil {
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilidranda) {
+    public Automovil(String fabricante, String modelo, Color color, Motor motor) {
         this(fabricante, modelo, color);// para llamar al constructor de arriba.
-        this.cilidranda = cilidranda;
+        this.motor = motor;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilidranda, int capacidadEstanque) {
-        this(fabricante, modelo, color, cilidranda);// para llamar al constructor de arriba.
-        this.capacidadEstanque = capacidadEstanque;
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque) {
+        this(fabricante, modelo, color, motor);// para llamar al constructor de arriba.
+        this.estanque = estanque;
+    }
+
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque, Persona conductor,
+            Rueda[] ruedas) {
+        this(fabricante, modelo, color, motor, estanque);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
     }
 
     public String getFabricante() {
@@ -115,22 +127,6 @@ public class Automovil {
 
     public void setColor(Color color) {
         this.color = color;
-    }
-
-    public double getCilidranda() {
-        return cilidranda;
-    }
-
-    public void setCilidranda(double cilidranda) {
-        this.cilidranda = cilidranda;
-    }
-
-    public int getCapacidadEstanque() {
-        return capacidadEstanque;
-    }
-
-    public void setCapacidadEstanque(int capacidadEstanque) {
-        this.capacidadEstanque = capacidadEstanque;
     }
 
     // get y set de atrib. estático debe ser static también.
@@ -167,6 +163,52 @@ public class Automovil {
         this.tipo = tipo;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public Estanque getEstanque() {
+        if (estanque == null) {
+
+            this.estanque = new Estanque();
+        }
+        return estanque;
+    }
+
+    public void setEstanque(Estanque estanque) {
+        this.estanque = estanque;
+    }
+
+    public Persona getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Persona conductor) {
+        this.conductor = conductor;
+    }
+
+    public Rueda[] getRuedas() {
+        return ruedas;
+    }
+
+    public void setRuedas(Rueda[] ruedas) {
+        this.ruedas = ruedas;
+    }
+
+    public Automovil addRueda(Rueda rueda) {
+
+        if (indiceRuedas < this.ruedas.length) {
+
+            this.ruedas[indiceRuedas++] = rueda;
+
+        }
+        return this;
+    }
+
     public void detalle() {
 
         // buena práctica métodos no deberían imprimir datos. No hacer esto. Debería
@@ -180,7 +222,7 @@ public class Automovil {
         System.out.println("auto : " + this.modelo); // de la clase
         System.out.println("auto : " + modelo); // del método.
         System.out.println("auto : " + this.color);
-        System.out.println("auto : " + this.cilidranda);
+        System.out.println("auto : " + this.motor.getCilindrada());
 
     }
 
@@ -206,14 +248,40 @@ public class Automovil {
 
         // forma tres:
 
-        return "\nauto.id : " + this.id +
+        String detalle = "\nauto.id : " + this.id +
 
                 "\nfabricante : " + this.fabricante + "\nmodelo : " +
 
-                modelo + "\nauto.tipo = " + this.getTipo().getDescripcion() +
+                modelo;
 
-                "\ncolor : " + this.color + "\nauto.patenteColor = " + Automovil.colorPatente + "\ncilindrada : "
-                + this.cilidranda;
+        if (this.getTipo() != null) {
+
+            detalle += "\nauto.tipo = " + this.getTipo().getDescripcion();
+
+        }
+
+        detalle += "\ncolor : " + this.color + "\nauto.patenteColor = " + Automovil.colorPatente;
+
+        if (this.getMotor() != null) {
+
+            detalle += "\ncilindrada : " + this.motor.getCilindrada();
+
+        }
+
+        if (this.getConductor() != null) {
+
+            detalle += "\nConductor: " + this.getConductor();
+
+        }
+
+        if (getRuedas() != null) {
+            detalle += "\nRuedas del automóvil:";
+            for (Rueda r : this.getRuedas()) {
+                detalle += "\n" + r.getFabricante() + ", aro: " + r.getAro() + ", ancho: " + r.getAncho();
+            }
+        }
+
+        return detalle;
     }
 
     public String acelerar(int rpm) {
@@ -238,7 +306,7 @@ public class Automovil {
     // Porcentaje de gas gastado. Va en decimal
     public float calcularConsumo(int km, float porcentajeBencina) {
 
-        return km / (capacidadEstanque * porcentajeBencina);
+        return km / (this.getEstanque().getCapacidad() * porcentajeBencina);
 
     }
 
@@ -247,7 +315,7 @@ public class Automovil {
     // método visible.
     public float calcularConsumo(int km, int porcentajeBencina) {
 
-        return km / (capacidadEstanque * (porcentajeBencina / 100f));
+        return km / (this.getEstanque().getCapacidad() * (porcentajeBencina / 100f));
 
     }
 
@@ -283,8 +351,17 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return "Automovil [capacidadEstanque=" + capacidadEstanque + ", cilidranda=" + cilidranda + ", color=" + color
-                + ", fabricante=" + fabricante + ", id=" + id + ", modelo=" + modelo + "]";
+        return "Automovil [capacidadEstanque=" + estanque.getCapacidad() + ", cilidranda=" + motor.getCilindrada()
+                + ", color=" + color + ", fabricante=" + fabricante + ", id=" + id + ", modelo=" + modelo + "]";
+    }
+
+    @Override
+    public int compareTo(Automovil a) {
+
+        /* Automovil a = (Automovil) o; Esto era para hacer el cast sin el generic */
+
+        /* return this.modelo.compareTo(a.modelo); */
+        return this.conductor.toString().compareTo(a.conductor.toString());
     }
 
 }

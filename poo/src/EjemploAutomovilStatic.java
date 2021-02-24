@@ -5,8 +5,11 @@ public class EjemploAutomovilStatic {
         // cambiamos el valor de atributo estático:
         Automovil.setCapacidadEstanqueEstatico(45);
 
+        Motor motorSubaru = new Motor(2.0, TipoMotor.BENCINA);
+
+
         Automovil subaru = new Automovil("Subaru", "Impreza");
-        subaru.setCilidranda(2.0);
+        subaru.setMotor(motorSubaru);
         /*
          * subaru.setColor(Automovil.COLOR_BLANCO); //ejemplo de como usar las
          * constantes para tener más parametrizado el código.
@@ -14,17 +17,18 @@ public class EjemploAutomovilStatic {
 
         subaru.setTipo(TipoAutomovil.HATCHBACK);
 
-        Automovil mazda = new Automovil("Mazda", "BT-500", Color.ROJO, 3.0);
-        mazda.setTipo(TipoAutomovil.PICKUP);
+        Automovil mazda = new Automovil("Mazda", "BT-500", Color.ROJO, new Motor(3.0, TipoMotor.DIESEL));
+/*         mazda.setEstanque(new Estanque(50));
+ */        mazda.setTipo(TipoAutomovil.PICKUP);
 
         System.out.println("mazda color : " + mazda.getColor());
-        System.out.println("mazda cilindrada: " + mazda.getCilidranda());
+        System.out.println("mazda cilindrada: " + mazda.getMotor().getCilindrada());
 
-        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS,new Motor(3.0,TipoMotor.DIESEL), new Estanque(50));
 
         nissan.setTipo(TipoAutomovil.PICKUP);
 
-        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, 3.5, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS, new Motor(3.5,TipoMotor.BENCINA), new Estanque(50));
 
         nissan2.setTipo(TipoAutomovil.PICKUP);
 
@@ -68,6 +72,8 @@ public class EjemploAutomovilStatic {
                 + "\nnúmero de puertas: " + tipoSubaru.getNumeroPuerta()
 
         );
+
+        System.out.println(mazda.calcularConsumo(300, 70));
     }
 
 }
