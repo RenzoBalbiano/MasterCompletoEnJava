@@ -100,16 +100,9 @@ public class Factura {
             if(itemFactura == null){
                 continue;
             }
+            //como tenemos los toString imprimimos solo el objeto item.
 
-                sb.append(itemFactura.getProducto().getCodigo())
-                    .append("\t")
-                    .append(itemFactura.getProducto().getNombre())
-                    .append("\t")
-                    .append(itemFactura.getProducto().getPrecio())
-                    .append("\t")
-                    .append(itemFactura.getCantidad())
-                    .append("\t")
-                    .append(itemFactura.calcularImporte())
+                sb.append(itemFactura)
                     .append("\n");
 
             }
@@ -119,5 +112,12 @@ public class Factura {
 
         return sb.toString();
     }
+
+    @Override
+    public String toString() {
+        return generarDetalle();
+    }
+
+    
 
 }
