@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch EjemploHerenciaToString",
+            "request": "launch",
+            "mainClass": "arg.rbalbiano.ejemplo.EjemploHerenciaToString",
+            "projectName": "poo_herencia_241cca32"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploHerencia",
+            "request": "launch",
+            "mainClass": "arg.rbalbiano.ejemplo.EjemploHerencia",
+            "projectName": "poo_herencia_241cca32"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploHerenciaConstructores",
+            "request": "launch",
+            "mainClass": "arg.rbalbiano.ejemplo.EjemploHerenciaConstructores",
+            "projectName": "poo_herencia_241cca32"
+        }
+    ]
+}

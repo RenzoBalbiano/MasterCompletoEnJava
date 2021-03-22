@@ -65,11 +65,9 @@ public class Factura {
 
     public float calcularTotal() {
         float total = 0.0f;
-        for (ItemFactura itemFactura : this.items) {
-            if (!(itemFactura instanceof ItemFactura)) {
-                continue;
-            }
-            total += itemFactura.calcularImporte(); // hay que tener cuidado con el nullPointerExcepction, algunos items
+        for (int i = 0; i < indiceItems; i++) {
+
+            total += this.items[i].calcularImporte(); // hay que tener cuidado con el nullPointerExcepction, algunos items
                                                     // pueden estar vacíos en el arreglo que es de hasta 12. Puede ser
                                                     // en el if: itemFactura == null
         }
@@ -78,37 +76,25 @@ public class Factura {
 
     public String generarDetalle() {
         StringBuilder sb = new StringBuilder("Factura Nº: ");
-        sb.append(folio)
-            .append("\nCliente: ")
-            .append(this.cliente.getNombre())
-            .append("\tNIF: ")
-            .append(this.cliente.getNif())
-            .append("\nDescripción: ")
-            .append(this.descripcion)
-            .append("\n");
+        sb.append(folio).append("\nCliente: ").append(this.cliente.getNombre()).append("\tNIF: ")
+                .append(this.cliente.getNif()).append("\nDescripción: ").append(this.descripcion).append("\n");
 
         SimpleDateFormat df = new SimpleDateFormat("dd 'de' MMMM, yyyy");
 
-        sb.append("Fecha Emisión: ")
-            .append(df.format(this.fecha))
-            .append("\n")
-            .append("\n#\tNombre\t$\tCant.\tTotal\n");
+        sb.append("Fecha Emisión: ").append(df.format(this.fecha)).append("\n")
+                .append("\n#\tNombre\t$\tCant.\tTotal\n");
 
-        
-        for (ItemFactura itemFactura: this.items) {
+        for (int i = 0; i < indiceItems; i++) {
+            //mejoramos el for, sacamos el if/continue, ya que no hay
+            //elementos nulos, itera hasta cierta cantidad.
 
-            if(itemFactura == null){
-                continue;
-            }
-            //como tenemos los toString imprimimos solo el objeto item.
+            // como tenemos los toString imprimimos solo el objeto item.
 
-                sb.append(itemFactura)
-                    .append("\n");
+            sb.append(this.items[i].toString()).append("\n");
 
-            }
+        }
 
-        sb.append("\nGran Total: ")
-            .append(calcularTotal());
+        sb.append("\nGran Total: ").append(calcularTotal());
 
         return sb.toString();
     }
@@ -117,7 +103,5 @@ public class Factura {
     public String toString() {
         return generarDetalle();
     }
-
-    
 
 }

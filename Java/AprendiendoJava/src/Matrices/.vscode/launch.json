@@ -1,0 +1,98 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ALgo",
+            "request": "launch",
+            "mainClass": "Matrices.ALgo",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatrices",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatrices",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesBuscar",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesBuscar",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesColumnasVariables",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesColumnasVariables",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesIdentidad",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesIdentidad",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesSimetricas",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesSimetricas",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesStringFor2",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesStringFor2",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesSumar",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesSumar",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesSumarFilasColumnas",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesSumarFilasColumnas",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesTransponerMatrices",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesTransponerMatrices",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemploMatricesTranspuestas",
+            "request": "launch",
+            "mainClass": "Matrices.EjemploMatricesTranspuestas",
+            "projectName": "Matrices_b7e69974"
+        },
+        {
+            "type": "java",
+            "name": "Launch EjemplosMatricesStringFor",
+            "request": "launch",
+            "mainClass": "Matrices.EjemplosMatricesStringFor",
+            "projectName": "Matrices_b7e69974"
+        }
+    ]
+}

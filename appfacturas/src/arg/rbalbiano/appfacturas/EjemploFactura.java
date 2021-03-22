@@ -14,16 +14,16 @@ public class EjemploFactura {
 
         Scanner s = new Scanner(System.in);
         System.out.print("Ingrese la descripción de la factura: ");
-        String desc = s.nextLine();
         
-        Factura factura = new Factura(desc,cliente);
+        Factura factura = new Factura(s.nextLine(),cliente);
 
         Producto producto;
 
         System.out.println(" ");
 
         //para registrar hasta cinco productos:
-        for(int i = 0; i < 5;i++){
+        //bajamos a dos para modo depuración.
+        for(int i = 0; i < 2;i++){
             producto = new Producto();
             System.out.print("Ingrese el nombre del producto nº " + producto.getCodigo() + ": ");
             producto.setNombre(s.nextLine());
