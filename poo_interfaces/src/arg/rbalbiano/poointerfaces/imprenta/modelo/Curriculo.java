@@ -3,13 +3,13 @@ package arg.rbalbiano.poointerfaces.imprenta.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Curriculo extends Hoja {
+public class Curriculo extends Hoja implements Imprimible {
 
-    private String persona;
+    private Persona persona;
     private String carrera;
     private List<String> experiencias;
 
-    public Curriculo(String persona, String carrera, String contenido) {
+    public Curriculo(Persona persona, String carrera, String contenido) {
         super(contenido);
         this.persona = persona;
         this.carrera = carrera;
@@ -26,6 +26,8 @@ public class Curriculo extends Hoja {
         // void por el tipo de Clase del objeto que se retorna.
 
     }
+
+    //reescribe el método de Imprimible así como el de Hoja.
 
     @Override
     public String imprimir() {
